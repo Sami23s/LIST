@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class MujList {
     public Element first;
 
@@ -28,6 +30,13 @@ public class MujList {
     last=e;
 }
 
+  /*  private void najvac(Element naj){
+        naj=first;
+        if (Arrays.equals()){
+
+        }
+    }*/
+
     private void printw(Element aktualny) { //print list povodne
         if (aktualny == null) {
             return;
@@ -55,8 +64,28 @@ public class MujList {
         return el;
 
     }
-}
+    public void randomize() {
+        List<Integer> list = new ArrayList<>();
+        Element current = first;
+        while (current != null) {
+            list.add(current.getData());
+            current = current.getNext();
+        }
 
+        Collections.shuffle(list);
+
+        current = first;
+        for (int i = 0; i < list.size(); i++) {
+            current.setData(list.get(i));
+            current = current.getNext();
+
+        }
+
+    }
+
+
+
+ }
    /* public void printR(Element aktual){ //list rekurzivne
        if(aktual==null) {
            return;
